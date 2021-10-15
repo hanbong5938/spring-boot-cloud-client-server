@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.5'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.spring'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '16'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
+	implementation("org.springframework.cloud:spring-cloud-starter-config:3.0.5")
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-context
+	implementation("org.springframework.cloud:spring-cloud-context:3.0.4")
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bootstrap
+	implementation("org.springframework.cloud:spring-cloud-starter-bootstrap:3.0.4")
+
+}
+
+test {
+	useJUnitPlatform()
+}
+
+bootRun {
+	systemProperties = System.properties as Map<String, ?>
+}
